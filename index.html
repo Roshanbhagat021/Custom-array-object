@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custome array</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+
+class customArray{
+    constructor(...args){
+        this.size=arguments.length
+       for (let i=0;i<this.size;i++){
+        this[i]=args[i]
+       }
+    }
+
+}
+
+
+customArray.prototype.push=function(x){
+    this[this.size]=x;
+    this.size+=arguments.length
+}
+
+
+customArray.prototype.pop=function(){
+    // console.log(this.size)
+    delete this[this.size-1];
+    this.size--;
+}
+
+
+customArray.prototype.top=function(){
+    return (this[this.size-1])
+}
+
+
+customArray.prototype.print=function(){
+let resutl="["
+   for (let i=0;i<this.size;i++){
+
+    if(i!==this.size-1){ 
+        resutl+=this[i]+",";
+    }else{
+        resutl+=(this[i])
+    }
+   }
+console.log(resutl+"]")
+}
+
+
+
+customArray.prototype.printReverse=function(){
+    let resutl="["
+    for(let i=this.size-1;i>=0;i--){
+       if(i==0){
+        resutl+=this[i]
+       }else{
+        resutl+=this[i]+","
+       }
+    }
+    console.log(resutl+"]")
+}
+
+
+customArray.prototype.Size=function(){
+    console.log(this.size)
+}
+
+
+let array1=new customArray("Roshan",19,45,12,15)
+// console.log(customArray)
+console.log(array1)
+// array1.push("is great")
+// array1.pop()
+// console.log(array1)
+
+// let z=array1.top()
+// console.log(z)
+
+// array1.printReverse()
+// array1.Size()
+
+
+</script>
